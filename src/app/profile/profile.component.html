@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <button class="btn btn-primary top" (click)="routeToTable()">
+    Back to Table
+  </button>
+
+  <div class=""><h1>PROFILE</h1></div>
+
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <div class="container profile-page">
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-12">
+        <div class="card profile-header">
+          <div class="body">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="profile-image float-md-right">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div id="align-profile" class="col-lg-8 col-md-8 col-12">
+                <h4 class="m-t-0 m-b-0">
+                  <!-- <strong>{{ user.name === undefined ? 'N/A' : user.name }}</strong> -->
+                </h4>
+                <!-- <span class="job_post">{{ user.gender === undefined ? 'N/A' : user.gender  }}</span> -->
+                <!-- <p>{{ user.age === undefined ? 'N/A' : user.age }}</p> -->
+                <div>
+                  <button class="btn btn-primary btn-round">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <form class="flex">
+      <label>Names:</label><br />
+      <input type="text" [(ngModel)]="names" name="names" /><br /><br />
+      <label>Country:</label><br />
+      <input type="text" [(ngModel)]="country" name="country" /><br /><br />
+      <label>Background:</label><br />
+      <input
+        type="text"
+        [(ngModel)]="background"
+        name="background"
+      /><br /><br />
+    </form>
+    <button (click)="submit()">Submit</button>
+
+    <h2>HTML Table: (Totals = {{ tableLength }})</h2>
+    <app-child-table (emitTableLength)="getTableLength($event)" [userData]="userProfile"></app-child-table>
+  </div>
+</div>

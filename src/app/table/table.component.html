@@ -1,0 +1,65 @@
+<body>
+  <div class="header">
+    <button (click)="routeToLogin()">Back to Login</button>
+    <button (click)="routeToForm()">Go to Form</button>
+  </div>
+  <h1>Welcome Back, {{ email }}
+   
+  </h1>
+  <div class="container">
+    <div class="table">
+      <div class="table-header">
+        <div class="header__item">
+          <a id="name" class="filter__link" href="#">#</a>
+        </div>
+        <div class="header__item">
+          <a id="wins" class="filter__link filter__link--number" href="#"
+            >Name</a
+          >
+        </div>
+        <div class="header__item">
+          <a id="draws" class="filter__link filter__link--number" href="#"
+            >Gender</a
+          >
+        </div>
+        <div class="header__item">
+          <a id="losses" class="filter__link filter__link--number" href="#"
+            >Age</a
+          >
+        </div>
+        <div class="header__item">
+          <a id="losses" class="filter__link filter__link--number" href="#"
+            >Email</a
+          >
+        </div>
+
+        <div class="header__item">
+          <a id="losses" class="filter__link filter__link--number" href="#"
+            >Phone Number</a
+          >
+        </div>
+
+        <div class="header__item">
+          <a id="total" class="filter__link filter__link--number" href="#"
+            ></a
+          >
+        </div>
+      </div>
+      <div class="table-content">
+        <div class="table-row" *ngFor="let item of users; let i = index">
+          <div class="table-data">{{i+1}}</div>
+          <div class="table-data">{{item.name}}</div>
+          <div class="table-data">{{item.gender}}</div>
+          <div class="table-data">{{item.age}}</div>
+          <div class="table-data">{{item.email}}</div>
+          <div class="table-data">{{item.phoneNumber}}</div>
+          <div class="total">
+            <button (click)="routeToForm()">Edit</button>
+            <button (click)="routeToProfile(item)">View</button>
+            <button (click)="deleteItem(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

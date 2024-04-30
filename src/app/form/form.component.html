@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1">Welcome Back</h2>
+      <h4 class="animation a2">
+        Log in to your account using email and password
+      </h4>
+    </div>
+    <form [formGroup]="userForm">
+      <div class="form">
+        <input
+          type="text"
+          class="form-field animation a3"
+          placeholder="Name"
+          formControlName="name"
+        />
+        <span
+          *ngIf="
+            (userForm.get('name')?.invalid && userForm.get('name')?.touched) ||
+            userForm.get('name')?.dirty
+          "
+        >
+          <small *ngIf="userForm.get('name')?.errors?.['required']">
+            Name is a required field*
+          </small>
+          <small *ngIf="userForm.get('name')?.errors?.['pattern']">
+            Only Alphabets are required*
+          </small>
+        </span>
+        <input
+          type="text"
+          class="form-field animation a4"
+          formControlName="age"
+          placeholder="Age"
+        />
+        <span
+          *ngIf="
+            (userForm.get('age')?.invalid && userForm.get('age')?.touched) ||
+            userForm.get('age')?.dirty
+          "
+        >
+          <small *ngIf="userForm.get('age')?.errors?.['required']">
+            Age is a required field*
+          </small>
+          <small *ngIf="userForm.get('age')?.errors?.['pattern']">
+            Only numbers are required*
+          </small>
+        </span>
+
+        <input
+          type="text"
+          class="form-field animation a4"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <span
+          *ngIf="
+            (userForm.get('email')?.invalid &&
+              userForm.get('email')?.touched) ||
+            userForm.get('email')?.dirty
+          "
+        >
+          <small *ngIf="userForm.get('email')?.errors?.['required']">
+            Email is a required field*
+          </small>
+          <small *ngIf="userForm.get('email')?.errors?.['email']">
+            Please enter a valid email address*
+          </small>
+        </span>
+
+        <div class="form-container">
+          <!-- Gender dropdown -->
+          <label for="gender">Gender:</label>
+          <select
+            id="gender"
+            name="gender"
+            aria-placeholder="select Items"
+            formControlName="gender"
+            placeholder="select Items"
+          >
+            <option value="" disabled selected>Select Items</option>
+            <option *ngFor="let items of genderArray" [value]="items">
+              {{ items }}
+            </option>
+          </select>
+        </div>
+
+        
+        <input
+          type="text"
+          class="form-field animation a4"
+          formControlName="phoneNumber"
+          placeholder="Phone Number"
+        />
+        <span
+          *ngIf="
+            (userForm.get('phoneNumber')?.invalid &&
+              userForm.get('phoneNumber')?.touched) ||
+            userForm.get('phoneNumber')?.dirty
+          "
+        >
+          <small *ngIf="userForm.get('phoneNumber')?.errors?.['required']">
+            Phone number is a required field*
+          </small>
+          <small *ngIf="userForm.get('phoneNumber')?.errors?.['pattern']">
+            Only Phone number digits are required*
+          </small>
+          <small *ngIf="userForm.get('phoneNumber')?.errors?.['minLength']">
+          {{minimumValValidation}}
+          </small>
+        </span>
+
+        <p class="animation a5"><a href="#">Forgot Password</a></p>
+        <button (click)="routeToTable()" class="animation a6">BACK</button>
+        <br />
+        <br />
+        <button class="animation a6" on-click="submit()">SUBMIT</button>
+      </div>
+    </form>
+  </div>
+</div>

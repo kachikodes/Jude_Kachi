@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table *ngFor="let item of users; let i = index">
+      <tr>
+        <th>{{ i + 1 }}</th>
+        <th>{{ item.name }}</th>
+        <th>{{ item.country }}</th>
+        <th>{{ item.background }}</th>
+      </tr>
+    </table>
+  </body>
+</html>
